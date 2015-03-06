@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css' />
+		<link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+		<div id="login">
+      <% if(name) { %>
+				<p id="desc">
+						Your name is: <span><%= name %></span>
+				</p>
+      <% } else { %>
+        <form method="post" action="" id="loginForm" class="form-group">
+            <input type="text"  placeholder="user name" name="user" value="<%= name %>" class="form-control">
+            <input type="password" placeholder="password" name="psw" class="form-control">
+            <button class="btn btn-default">submit</button>
+        </form>
+      <% } %>
+		</div>
+		
+    <div id="userInfo">
+      <% if(isAdmin){ %>
+        <p><a href="./newuser">add user</a></p>
+      <% } %>
+      <ul>
+        <% users.forEach(function(user){ %>
+            <li>
+							<%= user.name %>
+              <% if(isAdmin){ %>
+                <span>
+                  <a href="./edituser/" class="editUser" data-id="<%= user._id %>" data-name="<%= user.name %>">edit</a>
+                </span>
+                <span>
+                  <a href="./<%= user._id %>" class="deleteUser">delete</a>
+                </span>
+              <% } %>
+            </li>
+        <% }); %>
+      </ul>
+    </div>
+		
+		
+    <div id="editForm">
+      <form method="" action="" id="editUserForm" class="form-group">
+          <p>Add new user</p>
+					<input type="text" value="" id="_id" class="form-control">
+          <input type="text" value="" id="editUserName" class="form-control">
+          <button class="btn btn-default">Edit User</button>
+      </form>
+			<p id="close">close</p>
+			<div style="clear:both;"></div>
+    </div>
+		
+		<script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+		<script src="/js/index.js"></script>
+		
+  </body>
+</html>

@@ -1,0 +1,7 @@
+{
+	"redis": {
+		"host": "******.redis_provider.com",
+		"port": 4444,
+		"passworld" : "****Pass****"
+	}
+}

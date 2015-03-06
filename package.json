@@ -1,0 +1,16 @@
+{
+  "name": "application-name",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "~3.9.0",
+    "express-session": "~1.10.3",
+    "mongoose" : "~3.8.23",
+    "ejs": "~2.2.4",
+    "redis": "*",
+    "express-redis-cache": "*"
+  }
+}
